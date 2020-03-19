@@ -16,6 +16,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
+import  SideNavMenu from '../SideNav/SideNav';
+import Builds from '../Builds/Builds';
 
 import './App.css';
 
@@ -29,6 +31,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          <SideNavMenu />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />

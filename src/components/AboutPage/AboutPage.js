@@ -9,7 +9,7 @@ const AboutPage = () => (
   <div>
     <div>
       <p>
-        This about page is for anyone to read!
+        This app makes building a computer easy!
       </p>
     </div>
   </div>
