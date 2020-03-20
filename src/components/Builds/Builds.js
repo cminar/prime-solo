@@ -34,7 +34,7 @@ class Builds extends Component {
         <div className="builds">
             {this.props.reduxState.buildReducer.map((build) => {
               return(
-                <Build_Item buildName={build.title}/>
+                <Build_Item buildDescription={build.description} buildName={build.title} />
               );
             })}
         </div>

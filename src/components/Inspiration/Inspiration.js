@@ -9,10 +9,10 @@ import { Card } from 'semantic-ui-react'
 
 class Inspiration extends Component {
 
-    componentDidMount() {
-        this.getInspiration();
-      }
-  
+    // componentDidMount() {
+    //     this.getInspiration();
+    //   }
+
       
   
     // handleClick =()=>{

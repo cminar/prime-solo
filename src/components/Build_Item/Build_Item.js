@@ -20,12 +20,12 @@ class Build_Item extends Component {
         <Card>
           <Image src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FbAGQ3huLA18%2Fmaxresdefault.jpg&f=1&nofb=1' wrapped ui={false} />
           <Card.Content>
-            <Card.Header>RipTide</Card.Header>
+            <Card.Header>{this.props.buildName}</Card.Header>
               <Card.Meta>
-                <span className='user'>Colin</span>
+                <span className='user'>{this.props.reduxState.user.username}</span>
               </Card.Meta>
             <Card.Description>
-              {this.props.buildName}
+              {this.props.buildDescription}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
