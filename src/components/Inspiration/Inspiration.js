@@ -7,10 +7,7 @@ import { Card } from 'semantic-ui-react'
 
 const BuildList = props => (
   <div>
-    <>
-      <h1></h1>
-      <Build_Item />
-    </>
+      <h1>Get Inspired</h1>
   </div>
 );
 // const Builds = () => <Card.Group centered items={BuildList} />

@@ -11,18 +11,7 @@ class SideNavMenu extends Component {
     render() {
         const { activeItem } = this.state
       return (
-        <Menu borderless vertical>
-            <Menu.Item
-            name='My Builds'
-            active={activeItem === 'MyBuilds'}
-            onClick={this.handleItemClick}
-            />
-            <Menu.Item
-            name='Inpiration'
-            active={activeItem === 'Inspiration'}
-            onClick={this.handleItemClick}
-            />
-        </Menu>
+        <h3>sidenav</h3>
     )}
   }
   

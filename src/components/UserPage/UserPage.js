@@ -16,7 +16,6 @@ const UserPage = (props) => (
     <br>
       
     </br>
-    <Builds />
     
   </div>
 );
