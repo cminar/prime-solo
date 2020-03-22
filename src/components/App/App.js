@@ -19,6 +19,8 @@ import InfoPage from '../InfoPage/InfoPage';
 import  SideNavMenu from '../SideNav/SideNav';
 import Builds from '../Builds/Builds';
 import Inspiration from '../Inspiration/Inspiration';
+import AddBuild  from '../AddBuild/AddBuild';
+import Details from '../Details/Details';
 
 import './App.css';
 
@@ -56,6 +58,16 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/AddBuild"
+              component={AddBuild}
+            />
+            <ProtectedRoute
+              exact
+              path="/Details/:id"
+              component={Details}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

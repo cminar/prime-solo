@@ -2,7 +2,8 @@ import React from 'react';
 import {Component} from 'react';
 import { connect } from 'react-redux';
 import Build_Item from '../Build_Item/Build_Item';
-import { Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react';
+import {withRouter} from 'react-router-dom';
 
 
 
@@ -20,6 +21,10 @@ class Builds extends Component {
     console.log('state:', this.props.reduxState.buildReducer)
   }
 
+  newBuild = () => {
+    this.props.history.push('/AddBuild');
+  }
+
   // handleClick =()=>{
   //   swal("Great Pizza Picks!", "Please sign in before checkout");
   //   this.props.history.push('/signIn')
@@ -31,10 +36,11 @@ class Builds extends Component {
     
     return (
       <>
-        <div className="builds">
+        <h1>My Builds</h1> <button onClick={this.newBuild}>Add New</button>
+        <div class="ui six cards">>
             {this.props.reduxState.buildReducer.map((build) => {
               return(
-                <Build_Item buildDescription={build.description} buildName={build.title} />
+                <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>
               );
             })}
         </div>
@@ -51,5 +57,5 @@ const putReduxStateOnProps = (reduxState) => ({
   reduxState
 });
 
-export default connect(putReduxStateOnProps)(Builds);
+export default withRouter(connect(putReduxStateOnProps)(Builds));
 // const Builds = () => <Card.Group centered items={BuildList} />

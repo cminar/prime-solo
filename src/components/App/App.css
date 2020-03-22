@@ -1,10 +1,13 @@
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F4%2F5%2Fb%2F765121-amazing-technology-background-images-1920x1080-for-samsung.jpg&f=1&nofb=1);
+    color: aliceblue;
 }
 
 .alert {
-    background-color: #ff4545;
+    background-color: #0b45c2ee;
     margin: 50px;
 }
 
@@ -23,7 +26,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #c20b0bee;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,7 +36,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #0b45c2ee;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */

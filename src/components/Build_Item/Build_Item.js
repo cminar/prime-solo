@@ -2,23 +2,39 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import {Component} from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 
 class Build_Item extends Component {
 
+  handleDelete = (target) => {
+    this.props.dispatch({
+      type: 'DEL_BUILD',
+      payload: target.props.id
+    })
+    console.log('target:',target);
+    this.props.getBuilds()
+  }
 
-  // handleClick =()=>{
-  //   swal("Great Pizza Picks!", "Please sign in before checkout");
-  //   this.props.history.push('/signIn')
-  // } 
+
+  handleClick = () => {
+    this.props.dispatch({
+      type: 'GET_BUILD',
+      payload: this.props.id
+    })
+    this.props.history.push(`/Details/${this.props.id}`);
+    console.log(this.props.id);
+  }
+
 
   render() {
     console.log('props!!!!!!!:',this.props);
+    console.log('image: ', String(this.props.buildImage))
     
     return (
       <>
-        <Card>
-          <Image src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FbAGQ3huLA18%2Fmaxresdefault.jpg&f=1&nofb=1' wrapped ui={false} />
+        <Card class="grey card" className="ui centered card" className="ui fluid card" onClick={this.handleClick}>
+          <Image src={this.props.buildImage} width="300px" height="100px" wrapped ui={false}/>
           <Card.Content>
             <Card.Header>{this.props.buildName}</Card.Header>
               <Card.Meta>
@@ -29,12 +45,13 @@ class Build_Item extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
-            <Icon name='user' />
-              Joined in 2019
-            </a>
+            <button onClick={() => this.handleDelete(this)}>
+            <Icon name='trash'/>
+              Delete Build
+            </button>
           </Card.Content>
         </Card>
+
       </>
     );
   }
@@ -45,4 +62,4 @@ const putReduxStateOnProps = (reduxState) => ({
   reduxState
 });
 
-export default connect(putReduxStateOnProps)(Build_Item);
+export default withRouter(connect(putReduxStateOnProps)(Build_Item));

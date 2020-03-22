@@ -19,8 +19,19 @@ function* fetchBuilds(action) {
   }
 }
 
+function* deleteBuild(action) {
+    try {
+        console.log('target id', action.payload);
+        yield axios.delete(`/builds/${action.payload}`);
+        
+    } catch (error) {
+        console.log('error deleting build', error);
+    }
+}
+
 function* buildsSaga() {
   yield takeEvery('GET_BUILDS', fetchBuilds);
+  yield takeEvery('DEL_BUILD', deleteBuild);
 }
 
 export default buildsSaga;
