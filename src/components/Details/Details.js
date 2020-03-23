@@ -4,34 +4,16 @@ import { connect } from 'react-redux';
 import Build_Item from '../Build_Item/Build_Item';
 import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
+import { Icon, Image } from 'semantic-ui-react'
+import './Details.css'
 
 
 
 class Details extends Component {
-  // handleClick =()=>{
-  //   swal("Great Pizza Picks!", "Please sign in before checkout");
-  //   this.props.history.push('/signIn')
-  // } 
-//   state = {
-//       build: {}
-//   }
-//   componentDidMount() {
-//     this.getBuilds();
-//   }
 
-//   getBuild = () => {
-//       this.props.dispatch({
-//           type: 'SET_BUILD'
-//       })
-//   }
-
-//   setBuild = () => {
-//     console.log('singleReducer', this.props.reduxState.singleReducer)
-//     let single = this.props.reduxState.singleReducer
-//     this.setState({
-//         build: single
-//     })
-//   }
+  handleClick = () => {
+    console.log('CLICKED ITEM');
+  }
 
   render() {
     console.log('in details');
@@ -39,11 +21,75 @@ class Details extends Component {
     
     return (
       <>
-        <h1>Component</h1>
         <div>
             {this.props.reduxState.singleReducer.map((build) => {
               return(
-                <h1>Title: {build.title}</h1>
+                <div class="title">
+                  <h1>{build.title}</h1>
+                  <Image src={build.image} width="400px" />
+                  <br>
+                  </br>
+                  <Card class="ui fluid card" class="ui centered card" onClick={this.handleClick}>
+                    <Image src={build.cpu_image} width="300px" height="100px" wrapped ui={false}/>
+                   <Card.Content>
+                    <Card.Header>{build.cpu_title}</Card.Header>
+                    <Card.Description>
+                      {build.cpu_description}
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+            
+                    </Card.Content>
+                  </Card>
+                  <Card class="ui fluid card" class="ui centered card" onClick={this.handleClick}>
+                    <Image src={build.gpu_image} width="300px" height="100px" wrapped ui={false}/>
+                   <Card.Content>
+                    <Card.Header>{build.gpu_title}</Card.Header>
+                    <Card.Description>
+                      {build.gpu_description}
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+            
+                    </Card.Content>
+                  </Card>
+                  <Card class="ui fluid card" class="ui centered card" onClick={this.handleClick}>
+                    <Image src={build.psu_image} width="300px" height="100px" wrapped ui={false}/>
+                   <Card.Content>
+                    <Card.Header>{build.psu_title}</Card.Header>
+                    <Card.Description>
+                      {build.psu_description}
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+            
+                    </Card.Content>
+                  </Card>
+                  <Card class="ui fluid card" class="ui centered card" onClick={this.handleClick}>
+                    <Image src={build.mobo_image} width="300px" height="100px" wrapped ui={false}/>
+                   <Card.Content>
+                    <Card.Header>{build.mobo_title}</Card.Header>
+                    <Card.Description>
+                      {build.mobo_description}
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+            
+                    </Card.Content>
+                  </Card>
+                  <Card class="ui fluid card" class="ui centered card" onClick={this.handleClick}>
+                    <Image src={build.ram_image} width="300px" height="100px" wrapped ui={false}/>
+                   <Card.Content>
+                    <Card.Header>{build.ram_title}</Card.Header>
+                    <Card.Description>
+                      {build.ram_description}
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+            
+                    </Card.Content>
+                  </Card>
+                </div>
               );
             })}
         </div>

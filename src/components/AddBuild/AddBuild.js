@@ -42,7 +42,7 @@ class AddBuild extends Component {
     
     return (
       <>
-        <div className="AddForum">
+        <div class="AddForum">
             <h1>Add Build</h1>
             <br>
 

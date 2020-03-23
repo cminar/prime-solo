@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Build_Item from '../Build_Item/Build_Item';
 import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
-
+import './Builds.css'
 
 
 class Builds extends Component {
@@ -31,13 +31,20 @@ class Builds extends Component {
   // } 
 
   render() {
+    
 
     console.log('testing in Buildslist', this.props.reduxState.buildReducer);
     
     return (
-      <>
+      <div class="builds">
         <h1>My Builds</h1> <button onClick={this.newBuild}>Add New</button>
-        <div class="ui six cards">
+        <h1>
+
+
+
+
+        </h1>
+        <div class="ui centered six cards" >
             {this.props.reduxState.buildReducer.map((build) => {
               return(
                 <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>
@@ -47,7 +54,7 @@ class Builds extends Component {
         <div>
           {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}
         </div>
-      </>
+      </div>
     );
   }
 }
