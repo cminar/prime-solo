@@ -5,7 +5,7 @@ import axios from 'axios';
 function* fetchBuilds(action) {
     try {
         console.log('target id', action.payload);
-        const response = yield axios.get(`/builds/${action.payload}`);
+        const response = yield axios.get(`/builds/api/${action.payload}`);
         yield put({ type: 'SET_BUILD', payload: response.data });
         console.log('results from single get: ', response.data)
         

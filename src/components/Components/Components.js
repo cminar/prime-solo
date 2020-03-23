@@ -5,6 +5,7 @@ import Build_Item from '../Build_Item/Build_Item';
 import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
 import './Components.css'
+import Cpus from '../CpuItem/CpuItem';
 class Components extends Component {
 
     componentDidMount() {
@@ -37,11 +38,11 @@ class Components extends Component {
     render() {
       
   
-      console.log('CPUs', this.props.reduxState.cpuReducer);
-      console.log('GPUs', this.props.reduxState.gpuReducer);
-      console.log('PSUs', this.props.reduxState.psuReducer);
-      console.log('RAMs', this.props.reduxState.ramReducer);
-      console.log('MOBOs', this.props.reduxState.moboReducer);
+      console.log('CPUs', this.props.reduxState.componentsReducer.cpuReducer);
+      console.log('GPUs', this.props.reduxState.componentsReducer.gpuReducer);
+      console.log('PSUs', this.props.reduxState.componentsReducer.psuReducer);
+      console.log('RAMs', this.props.reduxState.componentsReducer.ramReducer);
+      console.log('MOBOs', this.props.reduxState.componentsReducer.moboReducer);
       
       return (
         <div class="components">
@@ -53,11 +54,12 @@ class Components extends Component {
   
           </h1>
           <div class="ui centered six cards" >
-              {/* {this.props.reduxState.cpuReducer.map((cpu) => { */}
-                {/* return( */}
-                  {/* <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/> */}
-                {/* ); */}
-              {/* })} */}
+            <h2>CPU's</h2>
+              {this.props.reduxState.componentsReducer.cpuReducer.map((cpu) => {
+                return(
+                  <Cpus cpu={cpu} getProducts={this.getProducts}/>
+                );
+            })}
           </div>
           <div>
             {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}

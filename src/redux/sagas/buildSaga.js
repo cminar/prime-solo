@@ -22,7 +22,7 @@ function* fetchBuilds(action) {
 function* deleteBuild(action) {
     try {
         console.log('target id', action.payload);
-        yield axios.delete(`/builds/${action.payload}`);
+        yield axios.delete(`/builds/api/${action.payload}`);
         
     } catch (error) {
         console.log('error deleting build', error);

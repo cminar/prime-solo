@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "builds" WHERE "user_id" = $1`;
   pool.query(queryText, [req.user.id])
     .then((result) => res.send(result.rows))
-    .catch(() => res.sendStatus(500));
+    .catch(() => res.sendStatus(502));
 })
 
 router.post('/', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   .catch(() => res.sendStatus(500));
 })
 
-router.get('/:id', (req, res) => {
+router.get('/api/:id', (req, res) => {
   console.log('id:', req.params.id)
   const queryText = `SELECT * FROM "builds" 
   JOIN "cpu" ON "builds"."cpu_id" = "cpu"."id"
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
   WHERE "builds"."id" = $1;`
   pool.query(queryText, [req.params.id])
   .then((result) => res.send(result.rows))
-  .catch(() => res.sendStatus(500));
+  .catch(() => res.sendStatus(502));
 })
 
 router.delete('/:id', (req, res) => {
