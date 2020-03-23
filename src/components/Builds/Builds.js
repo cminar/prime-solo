@@ -37,7 +37,7 @@ class Builds extends Component {
     return (
       <>
         <h1>My Builds</h1> <button onClick={this.newBuild}>Add New</button>
-        <div class="ui six cards">>
+        <div class="ui six cards">
             {this.props.reduxState.buildReducer.map((build) => {
               return(
                 <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>

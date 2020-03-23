@@ -40,8 +40,12 @@ class Details extends Component {
     return (
       <>
         <h1>Component</h1>
-        <div className="builds">
-            {/* <h2>Title: {this.props.reduxState.singleReducer}</h2> */}
+        <div>
+            {this.props.reduxState.singleReducer.map((build) => {
+              return(
+                <h1>Title: {build.title}</h1>
+              );
+            })}
         </div>
         <div>
           {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}
