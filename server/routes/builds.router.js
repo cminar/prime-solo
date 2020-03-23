@@ -1,8 +1,5 @@
 const express = require('express');
-const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
-const userStrategy = require('../strategies/user.strategy');
 
 const router = express.Router();
 
@@ -45,5 +42,56 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500);
     });
 });
+
+router.get('/cpu', (req, res) => {
+  console.log('User id', req.user.id)
+  const queryText = 'SELECT * FROM "cpu"';
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
+router.get('/gpu', (req, res) => {
+  console.log('User id', req.user.id)
+  const queryText = `SELECT * FROM "gpu"`;
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
+router.get('/psu', (req, res) => {
+  console.log('User id', req.user.id)
+  const queryText = `SELECT * FROM "psu"`;
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
+router.get('/ram', (req, res) => {
+  console.log('User id', req.user.id)
+  const queryText = `SELECT * FROM "ram"`;
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
+router.get('/mobo', (req, res) => {
+  console.log('User id', req.user.id)
+  const queryText = `SELECT * FROM "mobo"`;
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
 
 module.exports = router;

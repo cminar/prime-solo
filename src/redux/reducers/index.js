@@ -4,6 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import buildReducer from './buildReducer';
 import singleReducer from './singleReducer';
+import componentsReducer from './componentsReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   buildReducer,
   singleReducer,
+  componentsReducer,
 });
 
 export default rootReducer;

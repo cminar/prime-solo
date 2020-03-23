@@ -21,6 +21,7 @@ import Builds from '../Builds/Builds';
 import Inspiration from '../Inspiration/Inspiration';
 import AddBuild  from '../AddBuild/AddBuild';
 import Details from '../Details/Details';
+import Components from '../Components/Components';
 
 import './App.css';
 
@@ -58,6 +59,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/Components"
+              component={Components}
             />
             <ProtectedRoute
               exact

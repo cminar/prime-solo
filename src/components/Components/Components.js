@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Build_Item from '../Build_Item/Build_Item';
 import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
-
+import './Components.css'
 class Components extends Component {
 
     componentDidMount() {
@@ -13,9 +13,20 @@ class Components extends Component {
   
     getProducts= () => {
       this.props.dispatch({
-        type: 'GET_PRODUCTS',
+        type: 'GET_CPU',
       })
-      console.log('getProducts Fired');
+      this.props.dispatch({
+        type: 'GET_GPU',
+      })
+      this.props.dispatch({
+        type: 'GET_PSU',
+      })
+      this.props.dispatch({
+        type: 'GET_RAM',
+      })
+      this.props.dispatch({
+        type: 'GET_MOBO',
+      })
     }
   
     // handleClick =()=>{
@@ -26,10 +37,14 @@ class Components extends Component {
     render() {
       
   
-      console.log('testing in componentsList', this.props.reduxState.buildReducer);
+      console.log('CPUs', this.props.reduxState.cpuReducer);
+      console.log('GPUs', this.props.reduxState.gpuReducer);
+      console.log('PSUs', this.props.reduxState.psuReducer);
+      console.log('RAMs', this.props.reduxState.ramReducer);
+      console.log('MOBOs', this.props.reduxState.moboReducer);
       
       return (
-        <div class="builds">
+        <div class="components">
           <h1>Components</h1>
           <h1>
   
@@ -38,11 +53,11 @@ class Components extends Component {
   
           </h1>
           <div class="ui centered six cards" >
-              {this.props.reduxState.buildReducer.map((build) => {
-                return(
-                  <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>
-                );
-              })}
+              {/* {this.props.reduxState.cpuReducer.map((cpu) => { */}
+                {/* return( */}
+                  {/* <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/> */}
+                {/* ); */}
+              {/* })} */}
           </div>
           <div>
             {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}

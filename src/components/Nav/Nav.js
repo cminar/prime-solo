@@ -27,6 +27,13 @@ const Nav = (props) => (
       )}
       {props.user.id && (
         <>
+          <Link className="nav-link" to="/Components">
+            Components
+          </Link>
+        </>
+      )}
+      {props.user.id && (
+        <>
           <Link className="nav-link" to="/inspiration">
             Inspiration
           </Link>
