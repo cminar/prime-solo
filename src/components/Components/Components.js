@@ -6,6 +6,10 @@ import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
 import './Components.css'
 import Cpus from '../CpuItem/CpuItem';
+import Gpus from '../GpuItem/GpuItem.js';
+import Psus from '../PsuItem/PsuItem';
+import Ram from '../RamItem/RamItem';
+import Mobos from '../MoboItem/MoboItem';
 class Components extends Component {
 
     componentDidMount() {
@@ -57,7 +61,39 @@ class Components extends Component {
             <h2>CPU's</h2>
               {this.props.reduxState.componentsReducer.cpuReducer.map((cpu) => {
                 return(
-                  <Cpus cpu={cpu} getProducts={this.getProducts}/>
+                  <Cpus builds={this.props.reduxState.buildReducer} cpu={cpu} getProducts={this.getProducts}/>
+                );
+            })}
+          </div>
+          <div class="ui centered six cards" >
+            <h2>Graphics Cards</h2>
+              {this.props.reduxState.componentsReducer.gpuReducer.map((gpu) => {
+                return(
+                  <Gpus builds={this.props.reduxState.buildReducer} gpu={gpu} getProducts={this.getProducts}/>
+                );
+            })}
+          </div>
+          <div class="ui centered six cards" >
+            <h2>Power Supplies</h2>
+              {this.props.reduxState.componentsReducer.psuReducer.map((psu) => {
+                return(
+                  <Psus builds={this.props.reduxState.buildReducer} psu={psu} getProducts={this.getProducts}/>
+                );
+            })}
+          </div>
+          <div class="ui centered six cards" >
+            <h2>RAM</h2>
+              {this.props.reduxState.componentsReducer.ramReducer.map((ram) => {
+                return(
+                  <Ram builds={this.props.reduxState.buildReducer} ram={ram} getProducts={this.getProducts}/>
+                );
+            })}
+          </div>
+          <div class="ui centered six cards" >
+            <h2>Motherboards</h2>
+              {this.props.reduxState.componentsReducer.moboReducer.map((mobo) => {
+                return(
+                  <Mobos builds={this.props.reduxState.buildReducer} mobo={mobo} getProducts={this.getProducts}/>
                 );
             })}
           </div>

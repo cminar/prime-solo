@@ -33,7 +33,7 @@ router.get('/api/:id', (req, res) => {
   .catch(() => res.sendStatus(502));
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/api/:id', (req, res) => {
   const queryText = 'DELETE FROM builds WHERE id = $1';
   pool.query(queryText, [req.params.id])
     .then(() => { res.sendStatus(200); })

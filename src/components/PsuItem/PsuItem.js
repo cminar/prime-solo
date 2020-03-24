@@ -4,25 +4,23 @@ import {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-const MySwal = withReactContent(Swal)
 
+class PsuItem extends Component {
 
-class CpuItem extends Component {
+    state={}
 
-  state={}
+    componentDidMount() {
+        this.getBuilds();
+      }
+    
+      getBuilds= () => {
+        this.props.dispatch({
+          type: 'GET_BUILDS',
+        })
+        console.log('getBuilds Fired');
+        console.log('state:', this.props.reduxState.buildReducer)
+      }
 
-  componentDidMount() {
-    this.getBuilds();
-  }
-
-  getBuilds= () => {
-    this.props.dispatch({
-      type: 'GET_BUILDS',
-    })
-    console.log('getBuilds Fired');
-    console.log('state:', this.props.reduxState.buildReducer)
-  }
 
   handleClick = () => {
     console.log('clicked item');
@@ -38,7 +36,7 @@ class CpuItem extends Component {
     }
     Swal.fire({
       title: 'Are you sure?',
-      text: `Adding ${one.props.cpu.cpu_title}`,
+      text: `Adding ${one.props.psu.psu_title}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -69,11 +67,11 @@ class CpuItem extends Component {
     return (
       <>
         <Card class="grey card" className="ui centered card" className="ui fluid card" onClick={this.handleClick}>
-          <Image src={this.props.cpu.cpu_image} width="300px" height="100px" wrapped ui={false}/>
+          <Image src={this.props.psu.psu_image} width="300px" height="100px" wrapped ui={false}/>
           <Card.Content>
-            <Card.Header>{this.props.cpu.cpu_title}</Card.Header>
+            <Card.Header>{this.props.psu.psu_title}</Card.Header>
             <Card.Description>
-              {this.props.cpu.cpu_description}
+              {this.props.psu.psu_description}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -94,4 +92,4 @@ const putReduxStateOnProps = (reduxState) => ({
   reduxState
 });
 
-export default withRouter(connect(putReduxStateOnProps)(CpuItem));
+export default withRouter(connect(putReduxStateOnProps)(PsuItem));

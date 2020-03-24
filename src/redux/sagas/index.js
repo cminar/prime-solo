@@ -21,5 +21,6 @@ export default function* rootSaga() {
     buildSaga(),
     singleSaga(),
     componentSaga(),
+    addComponentSaga(),
   ]);
 }
