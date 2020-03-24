@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, SearchResults } from 'semantic-ui-react'
 import {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
@@ -50,7 +50,8 @@ class CpuItem extends Component {
       [this.state.id1]: `${this.state.id1}`,
       [this.state.id2]: `${this.state.id2}`,
       [this.state.id3]: `${this.state.id3}`,
-      [this.state.id4]: `${this.state.id4}`
+      [this.state.id4]: `${this.state.id4}`,
+      [this.state.id5]: `${this.state.id5}`
   },
     }).then((result) => {
       if (result.value) {
@@ -59,6 +60,15 @@ class CpuItem extends Component {
           `Added to ${result.value}`,
           'success'
         )
+        let objectToSend = {
+          cpuid: one.props.cpu.id,
+          buildname: result.value
+        }
+        this.props.dispatch({
+          type: 'ADD_CPU',
+          payload: objectToSend
+        })
+        
       }
     })
   }

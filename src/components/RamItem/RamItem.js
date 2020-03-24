@@ -57,6 +57,14 @@ class RamItem extends Component {
           `Added to ${result.value}`,
           'success'
         )
+        let objectToSend = {
+            cpuid: one.props.ram.id,
+            buildname: result.value
+          }
+          this.props.dispatch({
+            type: 'ADD_RAM',
+            payload: objectToSend
+          })
       }
     })
   }

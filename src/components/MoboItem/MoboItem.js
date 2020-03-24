@@ -56,6 +56,14 @@ class MoboItem extends Component {
           `Added to ${result.value}`,
           'success'
         )
+        let objectToSend = {
+            cpuid: one.props.mobo.id,
+            buildname: result.value
+          }
+          this.props.dispatch({
+            type: 'ADD_MOBO',
+            payload: objectToSend
+          })
       }
     })
   }

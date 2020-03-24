@@ -33,7 +33,62 @@ router.get('/api/:id', (req, res) => {
   .catch(() => res.sendStatus(502));
 })
 
-router.delete('/api/:id', (req, res) => {
+router.put('/api/cpu/:id', (req, res) => {
+  console.log('at server with: ', req.body.cpuid, req.body.buildname)
+  const queryText = `UPDATE "builds" SET "cpu_id" = $1 WHERE "title" = $2`
+  pool.query(queryText, [req.body.cpuid, req.body.buildname])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing put cpu query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/api/gpu/:id', (req, res) => {
+  console.log('at server with: ', req.body.cpuid, req.body.buildname)
+  const queryText = `UPDATE "builds" SET "gpu_id" = $1 WHERE "title" = $2`
+  pool.query(queryText, [req.body.cpuid, req.body.buildname])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing put gpu query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/api/ram/:id', (req, res) => {
+  console.log('at server with: ', req.body.cpuid, req.body.buildname)
+  const queryText = `UPDATE "builds" SET "ram_id" = $1 WHERE "title" = $2`
+  pool.query(queryText, [req.body.cpuid, req.body.buildname])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing put ram query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/api/psu/:id', (req, res) => {
+  console.log('at server with: ', req.body.cpuid, req.body.buildname)
+  const queryText = `UPDATE "builds" SET "psu_id" = $1 WHERE "title" = $2`
+  pool.query(queryText, [req.body.cpuid, req.body.buildname])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing put psu query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/api/mobo/:id', (req, res) => {
+  console.log('at server with: ', req.body.cpuid, req.body.buildname)
+  const queryText = `UPDATE "builds" SET "mobo_id" = $1 WHERE "title" = $2`
+  pool.query(queryText, [req.body.cpuid, req.body.buildname])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing put cpu query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/api/delete/:id', (req, res) => {
   const queryText = 'DELETE FROM builds WHERE id = $1';
   pool.query(queryText, [req.params.id])
     .then(() => { res.sendStatus(200); })

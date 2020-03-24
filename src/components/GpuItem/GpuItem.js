@@ -56,6 +56,14 @@ class GpuItem extends Component {
           `Added to ${result.value}`,
           'success'
         )
+        let objectToSend = {
+            cpuid: one.props.gpu.id,
+            buildname: result.value
+          }
+          this.props.dispatch({
+            type: 'ADD_GPU',
+            payload: objectToSend
+          })
       }
     })
   }

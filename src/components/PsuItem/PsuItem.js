@@ -57,6 +57,14 @@ class PsuItem extends Component {
           `Added to ${result.value}`,
           'success'
         )
+        let objectToSend = {
+            cpuid: one.props.psu.id,
+            buildname: result.value
+          }
+          this.props.dispatch({
+            type: 'ADD_PSU',
+            payload: objectToSend
+          })
       }
     })
   }
