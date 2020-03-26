@@ -20,7 +20,6 @@ class ClickCPU extends Component {
     }
   
     render() {
-      console.log('cpus', this.props.reduxState.componentsReducer.cpuReducer)
       
       return (
         <div class="center">

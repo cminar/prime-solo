@@ -20,7 +20,7 @@ class ClickPSU extends Component {
     }
   
     render() {
-      console.log('psus', this.props.reduxState.componentsReducer.cpuReducer)
+
       
       return (
         <div class="center">

@@ -20,7 +20,6 @@ class ClickGPU extends Component {
     }
   
     render() {
-      console.log('gpus', this.props.reduxState.componentsReducer.gpuReducer)
       
       return (
         <div class="center">

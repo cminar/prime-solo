@@ -20,7 +20,7 @@ class ClickRAM extends Component {
     }
   
     render() {
-      console.log('ram', this.props.reduxState.componentsReducer.cpuReducer)
+
       
       return (
         <div class="center">

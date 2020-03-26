@@ -20,7 +20,7 @@ class ClickMOBO extends Component {
     }
   
     render() {
-      console.log('mobos', this.props.reduxState.componentsReducer.cpuReducer)
+
       
       return (
         <div class="center">
