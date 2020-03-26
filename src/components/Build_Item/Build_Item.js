@@ -48,13 +48,13 @@ class Build_Item extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <button onClick={() => this.handleDelete(this)}>
+            <button class="ui google plus button" onClick={() => this.handleDelete(this)}>
             <Icon name='trash'/>
               Delete Build
             </button>
-            <button onClick={() => this.handleEdit(this)}>
+            <button class="ui google plus button" onClick={() => this.handleEdit(this)}>
             <Icon name='pencil alternate'/>
-              Build Details
+              Edit Build
             </button>
           </Card.Content>
         </Card>

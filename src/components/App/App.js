@@ -22,6 +22,11 @@ import Inspiration from '../Inspiration/Inspiration';
 import AddBuild  from '../AddBuild/AddBuild';
 import Details from '../Details/Details';
 import Components from '../Components/Components';
+import ClickCPU from '../ClickCPU/ClickCPU';
+import ClickGPU from '../ClickGPU/ClickGPU';
+import ClickPSU from '../ClickPSU/ClickPSU';
+import ClickMOBO from '../ClickMOBO/ClickMOBO';
+import ClickRAM from '../ClickRAM/ClickRAM';
 
 import './App.css';
 
@@ -35,7 +40,6 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <SideNavMenu />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -58,7 +62,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Builds}
             />
             <ProtectedRoute
               exact
@@ -74,6 +78,31 @@ class App extends Component {
               exact
               path="/Details/:id"
               component={Details}
+            />
+            <ProtectedRoute
+              exact
+              path="/ClickCPU"
+              component={ClickCPU}
+            />
+            <ProtectedRoute
+              exact
+              path="/ClickGPU"
+              component={ClickGPU}
+            />
+            <ProtectedRoute
+              exact
+              path="/ClickPSU"
+              component={ClickPSU}
+            />
+            <ProtectedRoute
+              exact
+              path="/ClickMOBO"
+              component={ClickMOBO}
+            />
+            <ProtectedRoute
+              exact
+              path="/ClickRAM"
+              component={ClickRAM}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

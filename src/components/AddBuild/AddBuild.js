@@ -48,17 +48,23 @@ class AddBuild extends Component {
 
             </br>
             <h3>Title</h3>
+            <div class="ui input">
             <input onChange={(event) => this.handleChange(event, "title")} placeholder="Title" />
+            </div>
             <br>
 
             </br>
             <h3>Description</h3>
+            <div class="ui input">
             <input onChange={(event) => this.handleChange(event, "description")} placeholder="Description" />
+            </div>
             <br>
 
             </br>
             <h3>Image</h3>
+            <div class="ui input">
             <input onChange={(event) => this.handleChange(event, "image")} placeholder="Image URL" />
+            </div>
             <br>
 
             </br>

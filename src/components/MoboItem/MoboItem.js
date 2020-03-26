@@ -85,7 +85,7 @@ class MoboItem extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <button onClick={() => this.handleAdd(this)}>
+            <button class="ui google plus button"  onClick={() => this.handleAdd(this)}>
             <Icon name='plus'/>
               Add To Build
             </button>

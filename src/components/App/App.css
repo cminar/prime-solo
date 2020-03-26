@@ -12,12 +12,16 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: #0b45c2ee;
     width: 30%;
     height: 250px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+}
+
+.forumcust {
+    margin: auto;
 }
 
 input {
