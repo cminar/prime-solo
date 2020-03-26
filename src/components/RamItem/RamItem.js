@@ -34,7 +34,8 @@ class RamItem extends Component {
         [`id${i}`]: one.props.builds[i].title
       })
     }
-    Swal.fire({
+    if(this.state.id0){
+      Swal.fire({
       title: 'Are you sure?',
       text: `Adding ${one.props.ram.ram_title}`,
       icon: 'warning',
@@ -68,6 +69,7 @@ class RamItem extends Component {
           })
       }
     })
+  }
   }
 
 

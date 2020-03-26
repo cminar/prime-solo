@@ -54,7 +54,7 @@ class Build_Item extends Component {
             </button>
             <button onClick={() => this.handleEdit(this)}>
             <Icon name='pencil alternate'/>
-              Edit Build
+              Build Details
             </button>
           </Card.Content>
         </Card>

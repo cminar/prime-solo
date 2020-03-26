@@ -33,7 +33,8 @@ class MoboItem extends Component {
         [`id${i}`]: one.props.builds[i].title
       })
     }
-    Swal.fire({
+    if(this.state.id0){
+      Swal.fire({
       title: 'Are you sure?',
       text: `Adding ${one.props.mobo.mobo_title}`,
       icon: 'warning',
@@ -67,6 +68,7 @@ class MoboItem extends Component {
           })
       }
     })
+  }
   }
 
 
