@@ -16,6 +16,9 @@ class Build_Item extends Component {
     this.props.getBuilds()
   }
 
+  handleEdit = (target) => {
+    this.props.history.push(`/Details/${this.props.id}`);
+  }
 
   handleClick = () => {
     this.props.dispatch({
@@ -48,6 +51,10 @@ class Build_Item extends Component {
             <button onClick={() => this.handleDelete(this)}>
             <Icon name='trash'/>
               Delete Build
+            </button>
+            <button onClick={() => this.handleEdit(this)}>
+            <Icon name='pencil alternate'/>
+              Edit Build
             </button>
           </Card.Content>
         </Card>

@@ -47,7 +47,8 @@ class MoboItem extends Component {
       [this.state.id1]: `${this.state.id1}`,
       [this.state.id2]: `${this.state.id2}`,
       [this.state.id3]: `${this.state.id3}`,
-      [this.state.id4]: `${this.state.id4}`
+      [this.state.id4]: `${this.state.id4}`,
+      [this.state.id5]: `${this.state.id5}`
   },
     }).then((result) => {
       if (result.value) {
@@ -86,6 +87,7 @@ class MoboItem extends Component {
             <Icon name='plus'/>
               Add To Build
             </button>
+            <h3>Price: ${this.props.mobo.mobo_price}.00</h3>
           </Card.Content>
         </Card>
 

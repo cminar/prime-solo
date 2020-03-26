@@ -33,6 +33,10 @@ class Components extends Component {
         type: 'GET_MOBO',
       })
     }
+
+    submit = () => {
+      this.props.history.push('/builds');
+    }
   
     // handleClick =()=>{
     //   swal("Great Pizza Picks!", "Please sign in before checkout");
@@ -105,6 +109,12 @@ class Components extends Component {
           <div>
             {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}
           </div>
+          <div class="ui google plus animated button" tabindex="0" onClick={this.submit}>
+            <div class="visible content">Next</div>
+            <div class="hidden content">
+            <i class="right arrow icon"></i>
+            </div>
+        </div>
         </div>
       );
     }
@@ -116,4 +126,4 @@ class Components extends Component {
   });
   
   export default withRouter(connect(putReduxStateOnProps)(Components));
-  // const Builds = () => <Card.Group centered items={BuildList} />
+  {/* // const Builds = () => <Card.Group centered items={BuildList} /> */}

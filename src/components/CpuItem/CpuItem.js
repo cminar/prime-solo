@@ -92,6 +92,7 @@ class CpuItem extends Component {
             <Icon name='plus'/>
               Add To Build
             </button>
+            <h3>Price: ${this.props.cpu.cpu_price}.00</h3>
           </Card.Content>
         </Card>
 

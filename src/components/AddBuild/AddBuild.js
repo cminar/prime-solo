@@ -33,7 +33,7 @@ class AddBuild extends Component {
             type: 'NEW_BUILD',
             payload: objectToSend
         })
-        this.props.history.push('/builds');
+        this.props.history.push('/Components');
     }
 
   render() {
@@ -62,7 +62,12 @@ class AddBuild extends Component {
             <br>
 
             </br>
-            <button onClick={this.submit}>Add Build</button>
+            <div class="ui google plus animated button" tabindex="0" onClick={this.submit}>
+            <div class="visible content">Next</div>
+            <div class="hidden content">
+            <i class="right arrow icon"></i>
+            </div>
+            </div>
         </div>
       </>
     );

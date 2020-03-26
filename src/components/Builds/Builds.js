@@ -37,7 +37,13 @@ class Builds extends Component {
     
     return (
       <div class="builds">
-        <h1>My Builds</h1> <button onClick={this.newBuild}>Add New</button>
+        <h1>My Builds</h1>
+        <div class="ui google plus animated button" tabindex="0" onClick={this.newBuild}>
+        <div class="visible content">Add New Build</div>
+        <div class="hidden content">
+        <i class="plus icon"></i>
+        </div>
+        </div>
         <h1>
 
 
