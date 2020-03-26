@@ -24,7 +24,7 @@ class GpuItem extends Component {
   handleClick = () => {
     console.log('clicked item');
   }
-
+  //Map this on page load then do the alert ------not working idk try again
   handleAdd = (one) => {
     console.log('one',one)
     for(let i=0; i<one.props.builds.length; i++){
@@ -33,39 +33,41 @@ class GpuItem extends Component {
         [`id${i}`]: one.props.builds[i].title
       })
     }
-    Swal.fire({
-      title: 'Are you sure?',
-      text: `Adding ${one.props.gpu.gpu_title}`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Add it!',
-      input: 'select',
-      inputOptions: {
-      [this.state.id0]: `${this.state.id0}`,
-      [this.state.id1]: `${this.state.id1}`,
-      [this.state.id2]: `${this.state.id2}`,
-      [this.state.id3]: `${this.state.id3}`,
-      [this.state.id4]: `${this.state.id4}`
-  },
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Added!',
-          `Added to ${result.value}`,
-          'success'
-        )
-        let objectToSend = {
-            cpuid: one.props.gpu.id,
-            buildname: result.value
-          }
-          this.props.dispatch({
-            type: 'ADD_GPU',
-            payload: objectToSend
-          })
-      }
-    })
+    if(this.state.id0){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: `Adding ${one.props.gpu.gpu_title}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Add it!',
+        input: 'select',
+        inputOptions: {
+        [this.state.id0]: `${this.state.id0}`,
+        [this.state.id1]: `${this.state.id1}`,
+        [this.state.id2]: `${this.state.id2}`,
+        [this.state.id3]: `${this.state.id3}`,
+        [this.state.id4]: `${this.state.id4}`
+    },
+        }).then((result) => {
+        if (result.value) {
+            Swal.fire(
+            'Added!',
+            `Added to ${result.value}`,
+            'success'
+            )
+            let objectToSend = {
+                cpuid: one.props.gpu.id,
+                buildname: result.value
+            }
+            this.props.dispatch({
+                type: 'ADD_GPU',
+                payload: objectToSend
+            })
+        }
+        })
+    }
   }
 
 

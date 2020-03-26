@@ -30,47 +30,48 @@ class CpuItem extends Component {
 
   handleAdd = (one) => {
     console.log('one',one)
-    for(let i=0; i<one.props.builds.length; i++){
-      console.log(this.state)
+    for(let i=0; i<this.props.reduxState.buildReducer.length; i++){
       this.setState({
-        [`id${i}`]: one.props.builds[i].title
+        [`id${i}`]: this.props.reduxState.buildReducer[i].title
       })
     }
-    Swal.fire({
-      title: 'Are you sure?',
-      text: `Adding ${one.props.cpu.cpu_title}`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Add it!',
-      input: 'select',
-      inputOptions: {
-      [this.state.id0]: `${this.state.id0}`,
-      [this.state.id1]: `${this.state.id1}`,
-      [this.state.id2]: `${this.state.id2}`,
-      [this.state.id3]: `${this.state.id3}`,
-      [this.state.id4]: `${this.state.id4}`,
-      [this.state.id5]: `${this.state.id5}`
-  },
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Added!',
-          `Added to ${result.value}`,
-          'success'
-        )
-        let objectToSend = {
-          cpuid: one.props.cpu.id,
-          buildname: result.value
+    if(this.state.id0){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: `Adding ${one.props.cpu.cpu_title}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Add it!',
+        input: 'select',
+        inputOptions: {
+        [this.state.id0]: `${this.state.id0}`,
+        [this.state.id1]: `${this.state.id1}`,
+        [this.state.id2]: `${this.state.id2}`,
+        [this.state.id3]: `${this.state.id3}`,
+        [this.state.id4]: `${this.state.id4}`,
+        [this.state.id5]: `${this.state.id5}`
+    },
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Added!',
+            `Added to ${result.value}`,
+            'success'
+          )
+          let objectToSend = {
+            cpuid: one.props.cpu.id,
+            buildname: result.value
+          }
+          this.props.dispatch({
+            type: 'ADD_CPU',
+            payload: objectToSend
+          })
+          
         }
-        this.props.dispatch({
-          type: 'ADD_CPU',
-          payload: objectToSend
-        })
-        
-      }
-    })
+      })
+    }
   }
 
 

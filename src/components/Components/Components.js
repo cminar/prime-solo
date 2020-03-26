@@ -57,40 +57,45 @@ class Components extends Component {
   
   
           </h1>
+          <h2>Pick a CPU</h2>
           <div class="ui centered six cards" >
-            <h2>CPU's</h2>
+            
               {this.props.reduxState.componentsReducer.cpuReducer.map((cpu) => {
                 return(
                   <Cpus builds={this.props.reduxState.buildReducer} cpu={cpu} getProducts={this.getProducts}/>
                 );
             })}
           </div>
+          <h2>Graphics Cards</h2>
           <div class="ui centered six cards" >
-            <h2>Graphics Cards</h2>
+            
               {this.props.reduxState.componentsReducer.gpuReducer.map((gpu) => {
                 return(
                   <Gpus builds={this.props.reduxState.buildReducer} gpu={gpu} getProducts={this.getProducts}/>
                 );
             })}
           </div>
+          <h2>Power Supply</h2>
           <div class="ui centered six cards" >
-            <h2>Power Supplies</h2>
+           
               {this.props.reduxState.componentsReducer.psuReducer.map((psu) => {
                 return(
                   <Psus builds={this.props.reduxState.buildReducer} psu={psu} getProducts={this.getProducts}/>
                 );
             })}
           </div>
+          <h2>RAM</h2>
           <div class="ui centered six cards" >
-            <h2>RAM</h2>
+            
               {this.props.reduxState.componentsReducer.ramReducer.map((ram) => {
                 return(
                   <Ram builds={this.props.reduxState.buildReducer} ram={ram} getProducts={this.getProducts}/>
                 );
             })}
           </div>
+          <h2>Motherboards</h2>
           <div class="ui centered six cards" >
-            <h2>Motherboards</h2>
+            
               {this.props.reduxState.componentsReducer.moboReducer.map((mobo) => {
                 return(
                   <Mobos builds={this.props.reduxState.buildReducer} mobo={mobo} getProducts={this.getProducts}/>

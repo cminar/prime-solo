@@ -43,6 +43,7 @@ class Details extends Component {
                     <br>
                     </br>
                     <div class="ui one cards">
+                    <h1>CPU</h1>
                     <Card class="ui fluid card" onClick={this.handleClick}>
                       <Image src={build.cpu_image} width="300px" height="100px" wrapped ui={false}/>
                       <Card.Header>CPU</Card.Header>
@@ -53,9 +54,11 @@ class Details extends Component {
                       </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-              
+                      <h3>Price: ${build.cpu_price}.00</h3>
                       </Card.Content>
+                      
                     </Card>
+                    <h1>Graphics Card</h1>
                     <Card class="ui fluid card" onClick={this.handleClick}>
                       <Image src={build.gpu_image} width="300px" height="100px" wrapped ui={false}/>
                       <Card.Header>Graphics Card</Card.Header>
@@ -66,9 +69,11 @@ class Details extends Component {
                       </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-              
+                      <h3>Price: ${build.gpu_price}.00</h3>
                       </Card.Content>
-                    </Card>
+                     
+                    </Card> 
+                    <h1>Power Supply</h1>
                     <Card class="ui fluid card" onClick={this.handleClick}>
                       <Image src={build.psu_image} width="300px" height="100px" wrapped ui={false}/>
                       <Card.Header>Power Supply</Card.Header>
@@ -79,9 +84,11 @@ class Details extends Component {
                       </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-              
+                      <h3>Price: ${build.psu_price}.00</h3>
                       </Card.Content>
+                      
                     </Card>
+                    <h1>MotherBoard</h1>
                     <Card class="ui fluid card" onClick={this.handleClick}>
                       <Image src={build.mobo_image} width="300px" height="100px" wrapped ui={false}/>
                       <Card.Header>Mother Board</Card.Header>
@@ -92,9 +99,11 @@ class Details extends Component {
                       </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-              
+                      <h3>Price: ${build.mobo_price}.00</h3>
                       </Card.Content>
+                      
                     </Card>
+                    <h1>RAM</h1>
                     <Card class="ui fluid card" onClick={this.handleClick}>
                       <Image src={build.ram_image} width="300px" height="100px" wrapped ui={false}/>
                       <Card.Header>RAM</Card.Header>
@@ -105,7 +114,7 @@ class Details extends Component {
                       </Card.Description>
                       </Card.Content>
                       <Card.Content extra>
-              
+                      <h3>Price: ${build.ram_price}.00</h3>
                       </Card.Content>
                     </Card>
                     </div>
