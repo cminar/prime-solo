@@ -7,6 +7,10 @@ import {withRouter} from 'react-router-dom';
 
 class Build_Item extends Component {
 
+  
+
+  
+
   handleDelete = (target) => {
     this.props.dispatch({
       type: 'DEL_BUILD',
@@ -14,10 +18,6 @@ class Build_Item extends Component {
     })
     console.log('target:',target);
     this.props.getBuilds()
-  }
-
-  handleEdit = (target) => {
-    this.props.history.push(`/Details/${this.props.id}`);
   }
 
   handleClick = () => {
@@ -29,14 +29,62 @@ class Build_Item extends Component {
     console.log(this.props.id);
   }
 
+  handlepopout = () => {
+    console.log('for visuals only');
+  }
+  
+  
+
 
   render() {
-    console.log('props!!!!!!!:',this.props);
-    console.log('image: ', String(this.props.buildImage))
-    
+    let cpuPrice = 0;
+    let gpuPrice = 0;
+    let ramPrice = 0;
+    let moboPrice = 0;
+    let psuPrice = 0;
+
+    // Gets CPU price
+    this.props.reduxState.componentsReducer.cpuReducer.map((cpu) => {
+      if(cpu.id === this.props.build.cpu_id){
+        cpuPrice = cpu.cpu_price;
+      }
+    })
+
+    // Gets GPU price
+    this.props.reduxState.componentsReducer.gpuReducer.map((gpu) => {
+      if(gpu.id === this.props.build.gpu_id){
+        gpuPrice = gpu.gpu_price;
+      }
+    })
+
+    // Gets PSU price
+    this.props.reduxState.componentsReducer.psuReducer.map((psu) => {
+      if(psu.id === this.props.build.psu_id){
+        psuPrice = psu.psu_price;
+      }
+    })
+
+    // Gets Mobo price
+    this.props.reduxState.componentsReducer.moboReducer.map((mobo) => {
+      if(mobo.id === this.props.build.mobo_id){
+        moboPrice = mobo.mobo_price;
+      }
+    })
+
+    // Gets RAM price
+    this.props.reduxState.componentsReducer.ramReducer.map((ram) => {
+      if(ram.id === this.props.build.ram_id){
+        ramPrice = ram.ram_price;
+      }
+    })
+
+
+    let total = parseFloat(cpuPrice) + parseFloat(gpuPrice) + parseFloat(ramPrice) + parseFloat(moboPrice) + parseFloat(psuPrice);
+
+    console.log('build', this.props.reduxState)
     return (
       <>
-        <Card class="grey card" className="ui centered card" className="ui fluid card" onClick={this.handleClick}>
+        <Card class="grey card" className="ui centered card" className="ui fluid card" onClick={this.handlepopout}>
           <Image src={this.props.buildImage} width="300px" height="100px" wrapped ui={false}/>
           <Card.Content>
             <Card.Header>{this.props.buildName}</Card.Header>
@@ -52,12 +100,15 @@ class Build_Item extends Component {
             <Icon name='trash'/>
               Delete Build
             </button>
-            <button class="ui google plus button" onClick={() => this.handleEdit(this)}>
+            <button class="ui google plus button" onClick={() => this.handleClick(this)}>
             <Icon name='pencil alternate'/>
               Edit Build
             </button>
           </Card.Content>
+          <h2>Total Price: ${total}.00</h2>
         </Card>
+
+        
 
       </>
     );

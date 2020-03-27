@@ -11,18 +11,6 @@ import './Details.css'
 
 class Details extends Component {
 
-  // componentDidMount() {
-  //   this.getBuild();
-  // }
-
-  // getBuild= () => {
-  //   this.props.dispatch({
-  //     type: 'GET_BUILD',
-  //   })
-  //   console.log('getBuilds Fired');
-  //   console.log('state:', this.props.reduxState.buildReducer)
-  // }
-
   handleClick = () => {
     console.log('CLICKED ITEM');
   }
@@ -80,7 +68,6 @@ class Details extends Component {
                       </button>
                       <h3>Price: ${build.cpu_price}.00</h3>
                       </Card.Content>
-                      
                     </Card>
                     <h1>Graphics Card</h1>
                     <Card class="ui fluid card" onClick={() => this.handleGPUClick(this)}>

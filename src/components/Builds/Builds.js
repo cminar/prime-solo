@@ -53,7 +53,7 @@ class Builds extends Component {
         <div class="ui centered six cards" >
             {this.props.reduxState.buildReducer.map((build) => {
               return(
-                <Build_Item buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>
+                <Build_Item build={build} buildDescription={build.description} buildName={build.title} buildImage={build.image} id={build.id} getBuilds={this.getBuilds}/>
               );
             })}
         </div>
