@@ -8,6 +8,7 @@ import './Builds.css'
 
 
 
+
 class Builds extends Component {
 
   componentDidMount() {
@@ -33,6 +34,7 @@ class Builds extends Component {
 
   render() {
     
+    
 
     console.log('testing in Buildslist', this.props.reduxState.buildReducer);
 
@@ -50,7 +52,6 @@ class Builds extends Component {
         <h1>
 
         
-
 
         </h1>
         <div class="ui centered six cards" >

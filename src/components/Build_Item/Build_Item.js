@@ -84,11 +84,17 @@ class Build_Item extends Component {
     let ramPrice = 0;
     let moboPrice = 0;
     let psuPrice = 0;
+    let cpuTitle = '';
+    let gpuTitle = '';
+    let psuTitle = '';
+    let moboTitle = '';
+    let ramTitle = '';
 
     // Gets CPU price
     this.props.reduxState.componentsReducer.cpuReducer.map((cpu) => {
       if(cpu.id === this.props.build.cpu_id){
         cpuPrice = cpu.cpu_price;
+        cpuTitle = cpu.cpu_title;
       }
     })
 
@@ -96,6 +102,7 @@ class Build_Item extends Component {
     this.props.reduxState.componentsReducer.gpuReducer.map((gpu) => {
       if(gpu.id === this.props.build.gpu_id){
         gpuPrice = gpu.gpu_price;
+        gpuTitle = gpu.gpu_title;
       }
     })
 
@@ -103,6 +110,7 @@ class Build_Item extends Component {
     this.props.reduxState.componentsReducer.psuReducer.map((psu) => {
       if(psu.id === this.props.build.psu_id){
         psuPrice = psu.psu_price;
+        psuTitle = psu.psu_title;
       }
     })
 
@@ -110,6 +118,7 @@ class Build_Item extends Component {
     this.props.reduxState.componentsReducer.moboReducer.map((mobo) => {
       if(mobo.id === this.props.build.mobo_id){
         moboPrice = mobo.mobo_price;
+        moboTitle = mobo.mobo_title;
       }
     })
 
@@ -117,6 +126,7 @@ class Build_Item extends Component {
     this.props.reduxState.componentsReducer.ramReducer.map((ram) => {
       if(ram.id === this.props.build.ram_id){
         ramPrice = ram.ram_price;
+        ramTitle = ram.ram_title;
       }
     })
 
@@ -134,7 +144,12 @@ class Build_Item extends Component {
                 <span className='user'>{this.props.reduxState.user.username}</span>
               </Card.Meta>
             <Card.Description>
-              {this.props.buildDescription}
+              <p>Description: {this.props.buildDescription}</p>
+              <p>CPU: {cpuTitle}</p>
+              <p>Graphics Card: {gpuTitle}</p>
+              <p>Power Supply: {psuTitle}</p>
+              <p>RAM: {ramTitle}</p>
+              <p>MotherBoard: {moboTitle}</p>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

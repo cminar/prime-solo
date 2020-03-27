@@ -70,7 +70,7 @@ class Components extends Component {
                 );
             })}
           </div>
-          <h2>Graphics Cards</h2>
+          <h2>Pick a Graphics Card</h2>
           <div class="ui centered six cards" >
             
               {this.props.reduxState.componentsReducer.gpuReducer.map((gpu) => {
@@ -79,7 +79,7 @@ class Components extends Component {
                 );
             })}
           </div>
-          <h2>Power Supply</h2>
+          <h2>Pick a Power Supply</h2>
           <div class="ui centered six cards" >
            
               {this.props.reduxState.componentsReducer.psuReducer.map((psu) => {
@@ -88,7 +88,7 @@ class Components extends Component {
                 );
             })}
           </div>
-          <h2>RAM</h2>
+          <h2>Pick RAM</h2>
           <div class="ui centered six cards" >
             
               {this.props.reduxState.componentsReducer.ramReducer.map((ram) => {
@@ -97,7 +97,7 @@ class Components extends Component {
                 );
             })}
           </div>
-          <h2>Motherboards</h2>
+          <h2>Pick a Motherboard</h2>
           <div class="ui centered six cards" >
             
               {this.props.reduxState.componentsReducer.moboReducer.map((mobo) => {
