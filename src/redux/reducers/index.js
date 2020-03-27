@@ -5,6 +5,7 @@ import user from './userReducer';
 import buildReducer from './buildReducer';
 import singleReducer from './singleReducer';
 import componentsReducer from './componentsReducer';
+import inspReducer from './inspReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   buildReducer,
   singleReducer,
   componentsReducer,
+  inspReducer,
 });
 
 export default rootReducer;

@@ -4,29 +4,37 @@ import {Component} from 'react';
 import { connect } from 'react-redux';
 import Build_Item from '../Build_Item/Build_Item';
 import { Card } from 'semantic-ui-react'
+import InspItem from '../InspItem/InspItem';
 
 
 
 class Inspiration extends Component {
 
-    // componentDidMount() {
-    //     this.getInspiration();
-    //   }
+  componentDidMount() {
+    this.getBuilds();
+  }
 
-      
-  
-    // handleClick =()=>{
-    //   swal("Great Pizza Picks!", "Please sign in before checkout");
-    //   this.props.history.push('/signIn')
-    // } 
+  getBuilds= () => {
+    this.props.dispatch({
+      type: 'GET_INSP',
+    })
+  }
   
     render() {
   
-    //   console.log('testing in Buildslist', this.props.reduxState.buildReducer);
+      console.log('testing in insp', this.props.reduxState.inspReducer);
       
       return (
         <>
-          <div>Get Inspired</div>
+          <h1 class="center">Get Inspired</h1>
+          <div class="ui grid">
+          {this.props.reduxState.inspReducer.map((pic) => {
+            console.log('pic',pic)
+              return(
+                <InspItem pic={pic}/>
+              );
+            })}
+          </div>
         </>
       );
     }

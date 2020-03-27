@@ -149,4 +149,14 @@ router.get('/mobo', (req, res) => {
 });
 })
 
+router.get('/all/all', (req, res) => {
+  const queryText = 'SELECT "image" FROM "builds"';
+  pool.query(queryText)
+  .then((result) => res.send(result.rows))
+  .catch((error) => {
+    console.log(`Error on query ${error}`);
+    res.send(error)
+});
+})
+
 module.exports = router;

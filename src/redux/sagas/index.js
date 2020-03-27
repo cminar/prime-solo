@@ -5,7 +5,8 @@ import userSaga from './userSaga';
 import buildSaga from './buildSaga';
 import singleSaga from './singleSaga';
 import componentSaga from './componentSaga';
-import addComponentSaga from './addComponentSaga'
+import addComponentSaga from './addComponentSaga';
+import inspSaga from './inspirationSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     singleSaga(),
     componentSaga(),
     addComponentSaga(),
+    inspSaga(),
   ]);
 }
