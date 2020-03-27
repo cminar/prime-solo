@@ -6,6 +6,8 @@ import { Card } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
 import { Icon, Image } from 'semantic-ui-react'
 import './Details.css'
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries} from 'react-vis';
+
 
 
 
@@ -39,6 +41,7 @@ class Details extends Component {
     console.log('in details');
     console.log('singleReducer',this.props.reduxState.singleReducer[0])
     
+    
     return (
       <>
         <div>
@@ -48,6 +51,7 @@ class Details extends Component {
                   <div class="title">
                     <h1>{build.title}</h1>
                     <Image src={build.image} width="400px" />
+                    <h3>{build.description}</h3>
                     <br>
                     </br>
                     <div class="ui one cards">

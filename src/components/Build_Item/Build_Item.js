@@ -7,10 +7,32 @@ import {withRouter} from 'react-router-dom';
 
 class Build_Item extends Component {
 
-  
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  getProducts= () => {
+    this.props.dispatch({
+      type: 'GET_CPU',
+    })
+    this.props.dispatch({
+      type: 'GET_GPU',
+    })
+    this.props.dispatch({
+      type: 'GET_PSU',
+    })
+    this.props.dispatch({
+      type: 'GET_RAM',
+    })
+    this.props.dispatch({
+      type: 'GET_MOBO',
+    })
+  }
 
   
 
+  
+  // Deletes Build by ID
   handleDelete = (target) => {
     this.props.dispatch({
       type: 'DEL_BUILD',
@@ -20,6 +42,7 @@ class Build_Item extends Component {
     this.props.getBuilds()
   }
 
+  // Gets Build by ID then sends user to Details page of build
   handleClick = () => {
     this.props.dispatch({
       type: 'GET_BUILD',
