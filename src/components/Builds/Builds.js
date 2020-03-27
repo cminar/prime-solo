@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-dom';
 import './Builds.css'
 
 
+
 class Builds extends Component {
 
   componentDidMount() {
@@ -34,6 +35,8 @@ class Builds extends Component {
     
 
     console.log('testing in Buildslist', this.props.reduxState.buildReducer);
+
+  
     
     return (
       <div class="builds">
@@ -46,7 +49,7 @@ class Builds extends Component {
         </div>
         <h1>
 
-
+        
 
 
         </h1>
@@ -61,6 +64,9 @@ class Builds extends Component {
           {/* <button className="nextButton" onClick={this.handleClick}>Next Page</button> */}
         </div>
       </div>
+
+
+      
     );
   }
 }

@@ -3,6 +3,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 import {Component} from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 class Build_Item extends Component {
@@ -37,9 +38,27 @@ class Build_Item extends Component {
     this.props.dispatch({
       type: 'DEL_BUILD',
       payload: target.props.id
-    })
+      })
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your build has been deleted.',
+          'success'
+        )
+      }
     console.log('target:',target);
     this.props.getBuilds()
+    })
+    
   }
 
   // Gets Build by ID then sends user to Details page of build
